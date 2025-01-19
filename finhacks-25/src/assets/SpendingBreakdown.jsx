@@ -10,7 +10,6 @@ const SpendingBreakdown = ({ csvData }) => {
       return;
     }
 
-    // Send the CSV data to the backend
     const fetchGraph = async () => {
       try {
         const response = await fetch("http://localhost:5000/upload_csv", {
@@ -18,12 +17,12 @@ const SpendingBreakdown = ({ csvData }) => {
           headers: {
             "Content-Type": "text/csv",
           },
-          body: csvData, // Send the CSV data as the request body
+          body: csvData,
         });
 
         if (response.ok) {
           const result = await response.json();
-          setImage(result.data); // Base64 graph image
+          setImage(result.data);
         } else {
           setError("Failed to fetch the spending breakdown.");
         }
@@ -39,7 +38,11 @@ const SpendingBreakdown = ({ csvData }) => {
     <div>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {image ? (
-        <img className='center' src={`data:image/png;base64,${image}`} alt="Spending Breakdown" />
+        <img
+          className="center"
+          src={`data:image/png;base64,${image}`}
+          alt="Spending Breakdown"
+        />
       ) : (
         <p>Loading graph...</p>
       )}
@@ -53,7 +56,7 @@ SpendingBreakdown.propTypes = {
 };
 
 SpendingBreakdown.defaultProps = {
-    csvData: "",
-  };
+  csvData: "",
+};
 
 export default SpendingBreakdown;

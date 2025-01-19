@@ -9,10 +9,9 @@ const supabase = createClient(
 );
 
 const Personal = () => {
-  const [finances, setFinances] = useState([]); // State for finances data
-  const [csvData, setCsvData] = useState(null); // State for the CSV string
+  const [finances, setFinances] = useState([]);
+  const [csvData, setCsvData] = useState(null);
 
-  // Fetch the finances data
   const fetchFinances = async () => {
     const { data, error } = await supabase.from("personal").select();
     if (error) {
@@ -21,32 +20,29 @@ const Personal = () => {
       setFinances(data);
       const csv = convertToCSV(data);
       console.log("Generated CSV:", csv);
-      setCsvData(csv); // Ensure csvData is updated here
+      setCsvData(csv);
     }
   };
 
-  // Convert the Supabase data to a CSV string
   const convertToCSV = (data) => {
     if (!data || data.length === 0) return "";
-    const headers = Object.keys(data[0]).join(",") + "\n"; // Create headers from keys
-    const rows = data.map((row) => Object.values(row).join(",")).join("\n"); // Convert rows
+    const headers = Object.keys(data[0]).join(",") + "\n";
+    const rows = data.map((row) => Object.values(row).join(",")).join("\n");
     return headers + rows;
   };
 
-  // Delete a finance item
   const deleteFinance = async (id) => {
     const { error } = await supabase.from("personal").delete().eq("id", id);
     if (error) {
       console.error("Error deleting finance:", error);
     } else {
-      fetchFinances(); // Refresh the data after deletion
+      fetchFinances();
     }
   };
 
   useEffect(() => {
-    fetchFinances(); // Fetch data on component mount
-  }
-);
+    fetchFinances();
+  });
 
   return (
     <div>
@@ -70,7 +66,12 @@ const Personal = () => {
               <td>{finance.amount}</td>
               <td>{finance.date_purchased}</td>
               <td>
-                <button className="deleteButton" onClick={() => deleteFinance(finance.id)}>Delete</button>
+                <button
+                  className="deleteButton"
+                  onClick={() => deleteFinance(finance.id)}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

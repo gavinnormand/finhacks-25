@@ -37,15 +37,12 @@ def visualize_data_for_month(month_data):
             categories[category]['count'] += 1
             categories[category]['total'] += spent
 
-    # Extract category names and totals dynamically
     category_names = [cat.replace("_", " ").capitalize() for cat in categories.keys()]
     category_totals = [data['total'] for data in categories.values()]
 
-    # Pair categories and totals together, then sort by totals
     category_data = sorted(zip(category_names, category_totals), key=lambda x: x[1], reverse=True)
     sorted_categories, sorted_totals = zip(*category_data)
 
-    # Plotting
     plt.figure(figsize=(10, 6))
     plt.title("Spending Breakdown", fontname='Times New Roman', fontsize=20)
     plt.bar(sorted_categories, sorted_totals, color='LightBlue')
@@ -54,12 +51,10 @@ def visualize_data_for_month(month_data):
     plt.ylabel("Amount of Money Spent ($)", fontname='Times New Roman')
     plt.subplots_adjust(left=0.125, right=0.9, top=0.88, bottom=0.2)
 
-    # Save the plot to a BytesIO object
     img_buf = BytesIO()
     plt.savefig(img_buf, format='png')
     plt.close()
 
-    # Encode the image in base64 for easy display in React
     img_buf.seek(0)
     img_base64 = base64.b64encode(img_buf.read()).decode('utf-8')
 

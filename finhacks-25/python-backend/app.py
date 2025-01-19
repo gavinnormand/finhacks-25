@@ -10,15 +10,12 @@ CORS(app, origins=["http://localhost:5173", "http://127.0.0.1:5173"])
 @app.route('/upload_csv', methods=['POST'])
 def upload_csv():
     if request.content_type == 'text/csv':
-        # Read the CSV data from the request body
         csv_data = request.data.decode('utf-8')
         csv_reader = csv.reader(StringIO(csv_data))
-        next(csv_reader)  # Skip the header
+        next(csv_reader)
 
-        # Parse rows into a list
         month_data = [row for row in csv_reader]
 
-        # Generate the spending breakdown graph
         image = spending_visualizer.visualize_data_for_month(month_data)
         return jsonify({"data": image})
     else:
