@@ -1,0 +1,117 @@
+* {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  font-size: 2rem;
+  padding: 0rem;
+  background-color:  #111111;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.pages {
+  display: inline-block;
+}
+
+.pageButton {
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.pageButton:hover {
+  color: gray;
+}
+
+.pageButton.active {
+  color: darkgray;
+}
+
+label {
+  padding: 1rem;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+  width: 100%;
+  padding: 0;
+}
+
+form {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  text-align: left;
+}
+
+thead tr {
+  background-color: #181818;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #000000;
+}
+
+.deleteButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.deleteButton:hover {
+  background-color: #c0392b;
+}
+
+.submitButton {
+  background-color: #13b001;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #429501;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h3 {
+  text-align: center;
+  margin: 0.5rem;
+}
+
+p {
+  margin: 1rem;
+}
