@@ -1,9 +1,10 @@
 # Scholar Saver 💵
 
-Scholar saver is a full-stack personal finance web app aimed to help students manage their finances. 
-It allows users to enter their expenses and keeps seperate track of personal and educational expenses. 
-It then serves up data visualizations to display how you spend your money. 
-It was built as a part of the 2025 FinHacks hackaton and was each of the group members' first ever full-stack web dev experience.
+Scholar Saver is a full-stack personal finance web app aimed at helping students manage their finances.
+It allows users to enter their expenses and keeps separate track of personal and educational expenses.
+It then serves up data visualizations to display how users spend their money.
+<br> <br>
+It was built as part of the 2025 FinHacks hackathon and was each group member's first-ever full-stack web development experience.
 
 This project is not deployed anywhere, however here is some screenshots of it's functionality.
 
